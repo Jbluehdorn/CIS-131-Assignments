@@ -1,0 +1,354 @@
+	<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>The Gr8-bit Race</title>
+	
+    <link rel="icon" href="images/DuckFavicon.png" type="image/png">
+    <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
+
+<body>
+
+	<!--These divs are used as events and only shown when necessary-->
+	<div id="resultBG" onclick="closeMenus();">
+   	  <div id="startScreen" class="menu">
+        	<div class="closeButton" onclick="closeMenus()"></div>
+        	<h1>Character Select!</h1>
+            
+            <div id="characters">
+                <div class="characterScreen" onclick="chooseCharacter(0);">
+                	<img src="images/pikachuSelect.png" alt="pikachu">
+                    <small>Pikachu</small>
+              	</div><!--
+             --><div class="characterScreen" onclick="chooseCharacter(1);">
+                	<img src="images/sonicSelect.png" alt="sonic">
+                    <small>Sonic</small>
+                </div><!--
+           	 --><div class="characterScreen" onclick="chooseCharacter(2);">
+                	<img src="images/megaManSelect.png" alt="megaman">
+                    <small>Mega Man</small>
+              	</div>	
+         	</div><!--end characters-->
+            
+        </div><!--end startScreen-->
+        
+     	<!--This screen displays after the race with the winners and losers-->
+   	 	<div id="resultScreen" class="menu">
+        	<div class="closeButton" onclick="closeMenus()"></div>
+            <h1>Winner!</h1>
+            
+        	<div class="characterScreen">
+            	<img src="" class="losers" alt="losing character">
+                <small id="loser1Small"></small>
+            </div><!--end Loser
+         --><div class="characterScreen">
+                
+         		<img src="" class="winner" alt="winning character">
+                <small id="winnerSmall"></small>
+            </div><!--end winner
+         --><div class="characterScreen">
+         		<img src="" class="losers" alt="losing character">
+                <small id="loser2Small"></small>
+            </div><!--end loser-->
+            
+        </div><!--end resultScreen-->
+    </div><!--end resultBG-->
+    
+    
+    
+    <!--The rest of the site begins here-->
+    <header>
+    	<div class="headerBar">
+        	<nav>
+            	<ul>
+                	<li><a href="index.html">Home</a></li>
+                    <li><a href="assignments.html">Assignments</a></li>
+                    <li><a href="more.html">More</a></li>
+                </ul>
+            </nav>
+        </div><!--End headerBar-->
+        
+        <img src="images/OregonO.png" alt="Oregon Logo" id="headerImage">
+        
+        <div class="headerBar bottomBar">
+        
+        </div><!--End bottomBar-->
+    </header>
+    
+    <div class="form-group" id="instructions">
+    	<label class="form-label">Instructions</label>
+        <p>
+        	1. Pick a character to play as<br>
+            2. When the race starts, mash <kbd>&larr;</kbd> and <kbd>&rarr;</kbd> to move your character<br>
+            3. First one to the finish line wins!
+        </p>
+    </div><!--end form group-->
+    
+    <!--Game Section-->
+	<div id="GameBoard">
+        <div id="line"></div>
+        
+        <img src="images/pikachuIdle.gif" class="player" alt="Pikachu" data-name="Pikachu" data-idle="images/pikachuIdle.gif" data-running="images/pikachuRunning.gif" data-celebration="images/pikachuCelebrating.gif" data-loss="images/pikachuLoss.png" data-select="images/pikachuSelect.png">
+        <img src="images/sonicIdle.gif" class="player" alt="Sonic" data-name="Sonic" data-idle="images/sonicIdle.gif" data-running="images/sonicRunning.gif" data-loss="images/sonicLoss.png" data-celebration="images/sonicCelebrating.gif" data-select="images/sonicSelect.png">
+        <img src="images/megaManIdle.gif"  class="player" alt="Mega Man" data-name="Mega Man" data-idle="images/megaManIdle.gif" data-running="images/megaManRunning.gif" data-loss="images/megaManLoss.png" data-celebration="images/megaManCelebrating.gif" data-select="images/megaManSelect.png">
+        
+    </div><!--End GameBoard-->
+    
+    
+    <!--Game Controls Section-->
+	<div id="controls" class="form-horizontal">
+		<div class="form-group col-lg-12">
+    		<div id="btnStart" class="btn btn-success col-lg-6" onclick="startRace()">Start the race!</div>        	
+            <div id="btnReset" class="btn btn-danger col-lg-6" onclick="resetPlayers()">Reset</div>
+        </div>
+        
+        <div class="form-group col-lg-12">
+        	<label for="speedPicker" class="form-label">Speed:</label>
+            <input type="range" id="speedPicker" class="form-control">
+        </div>
+        
+        <div class="form-group col-lg-6">
+        	<label for="backgroundSelect" class="form-label">Background:</label>
+            <select onchange="changeGameBackground()" class="form-control" id="backgroundSelect">
+                <option value="background: url(images/road.png); background-size: auto 100%;">Road</option>
+                <option value="background:url(images/greenHillZone.png); background-size: auto 100%;">Green Hill Zone</option>
+                <option value="background: url(images/tallGrass.png);background-size: auto 30%;">Tall Grass</option>
+                <option value="background: url(images/megaCity.png); background-size: auto 100%;">Residential Metropolis</option>
+            </select>
+        </div>
+        
+        <div class="form-group col-lg-6">
+        	<label for="characterSelect" class="form-label">Player Character:</label>
+            <select class="form-control" onchange="chooseCharacter(value)" id="characterSelect">
+                <option value="">None</option>
+                <option value="0">Pikachu</option>
+                <option value="1">Sonic</option>
+                <option value="2">Mega Man</option>
+            </select>
+        </div>
+    </div><!--end controls-->
+    
+    <img src="images/mario.gif" id="stopLight" data-stop="images/mario.gif" data-go="images/luigi.gif">
+    
+    
+    
+    
+    <script>
+		var images = document.getElementsByClassName("player");
+		var stoplight = document.getElementById('stopLight');
+		var raceOccurring = false;
+		var winner;
+		var keyRight = false;
+		
+		resetPlayers();
+		
+		var myTimer;
+		
+		//makes sure the players get to the new start line on resize
+		window.onresize = function() {resetPlayers()};
+		
+		//Begins the race
+		function startRace() {
+			//prevents obnoxious restarting
+			if(raceOccurring == true)
+				return;
+			resetPlayers();	
+			
+			stopLight.src = stopLight.dataset.go;
+			
+			
+			raceOccurring = true;
+			for(var i = 0; i < images.length; i++){
+				if(images[i].id != 'userCharacter'){
+					images[i].src = images[i].dataset.running;	
+				}
+			}
+			myTimer = setInterval(function() {movePlayers()}, 20);
+			
+			document.getElementById('characterSelect').disabled = true;
+		}
+		
+		//Moves the players for each tick of the timer and checks if they have won
+		function movePlayers() {
+			var speed = document.getElementById('speedPicker').value;
+			for(var i = 0; i < images.length; i++){
+				if(images[i].id != 'userCharacter'){
+					//Moves the player to the right
+					var rightVal = parseInt(images[i].style.right, 10);
+					images[i].style.right = (rightVal - Math.ceil(Math.random() * (speed/10 + 1))) + "px";
+					checkWinner();
+				}
+			} //end for
+		} //end movePlayers()
+		
+		//Clears timers and updates fields with winner's information
+		function finishRace() {
+			clearInterval(myTimer);
+			clearTimeout(timePassed);
+			stoplight.src = stoplight.dataset.stop;
+			
+			for(var i = 0; i < images.length; i++){
+				images[i].src = images[i] == winner ? images[i].dataset.celebration : images[i].dataset.loss;
+			}
+			
+			document.getElementById('startScreen').style.display = 'none';
+			document.getElementById('resultScreen').style.display = 'block';
+			document.getElementById('resultBG').style.display = 'block';
+			
+			var losers = document.getElementsByClassName('losers');
+			var winners = document.getElementsByClassName('winner');
+			var curLoser = 0;
+			
+			//Sets image for winners and losers
+			winners[0].src = winner.src;
+			
+			if(images[0] != winner) {
+				losers[curLoser].src = images[0].src;
+				losers[curLoser].dataset.name = images[0].dataset.name;
+				curLoser++;
+			}
+			if(images[1] != winner) {
+				losers[curLoser].src = images[1].src;
+				losers[curLoser].dataset.name = images[1].dataset.name;
+				curLoser++;
+			}
+			if(images[2] != winner) {
+				losers[curLoser].src = images[2].src;
+				losers[curLoser].dataset.name = images[2].dataset.name;
+				curLoser++;
+			}
+			
+			document.getElementById('loser1Small').innerHTML = losers[0].dataset.name;
+			document.getElementById('loser2Small').innerHTML = losers[1].dataset.name;
+			document.getElementById('winnerSmall').innerHTML = winner.dataset.name;
+			
+			//reanables character changing
+			document.getElementById('characterSelect').disabled = false;
+		} // end finishRace()
+		
+		//Determines if anyone has won yet
+		function checkWinner() {
+			for(var i = 0; i < images.length; i++){
+				raceOccurring =  parseInt(images[i].style.right, 10) <= 75 ? false : true; //Ensures that the player gets substantially over the line before giving them the win
+				
+				//Ends the race if there's a winner
+				if(raceOccurring == false){
+					winner = images[i];
+					finishRace();
+					break;
+				}
+			}
+		} //end checkWinner
+		
+		//Returns the players to the start
+		function resetPlayers() {
+			clearInterval(myTimer);
+			stoplight.src = stoplight.dataset.stop;
+			
+			for(var i = 0; i < images.length; i++){
+				
+				if(i == 0){
+					images[i].style.right = window.innerWidth - 125 + "px";
+					images[i].style.bottom = "250px";
+				}
+				else if(i == 1) {
+					images[i].style.right = window.innerWidth - 125 + "px";
+					images[i].style.bottom = "125px";
+				}
+				else if(i ==2) {
+					images[i].style.right = window.innerWidth - 125 + "px";
+					images[i].style.bottom = "0px";
+				}
+				images[i].src = images[i].dataset.idle;
+				raceOccurring = false;
+			}		
+			document.getElementById('characterSelect').disabled = false;
+			
+		} //end resetPlayers()
+		
+		//closes any active menus
+		function closeMenus() {
+			document.getElementById('resultBG').style.display = 'none';
+			resetPlayers();
+		} //end closeMenus
+		
+		//Changes the background of the gameboard
+		function changeGameBackground() {
+			document.getElementById('GameBoard').style = document.getElementById('backgroundSelect').value;
+		} // end changeGameBackground
+		
+		//==========Controls for the user player===================//
+		var timePassed;
+		
+		//selects the user character
+		function chooseCharacter(character) {
+			if(raceOccurring == false){
+				for(var i = 0; i < images.length; i++){
+					images[i].removeAttribute('id');	
+				}
+				images[character].setAttribute('id', 'userCharacter');	
+			}
+			
+			document.getElementById('characterSelect').selectedIndex = parseInt(character) + 1;
+		}
+		
+		//reacts to presses to move the character
+		$(document).keydown(function(e) {
+			if(raceOccurring){
+				//checks the click for right clicks
+				if(e.keyCode == 39) {
+					if(keyRight == false){
+						movePlayerChar();
+						
+						keyRight = true;
+					}
+				}
+				
+				//checks the click for left clicks
+				if(e.keyCode == 37) {
+					if(keyRight){
+						movePlayerChar();
+						keyRight = false;
+					}
+				}
+				checkWinner();
+			}
+		}); //end keydown
+		
+		//moves the player's character
+		function movePlayerChar() {
+			clearTimeout(timePassed);
+			
+			var character = $('#userCharacter');
+			
+			var speedCoeficient = $('#speedPicker').val();
+			var speed = speedCoeficient < 50 ? (speedCoeficient/5) + 5 : (speedCoeficient/9) + 10;
+			
+			var rightPos = parseInt(document.getElementById('userCharacter').style.right, 10);
+			document.getElementById('userCharacter').style.right = (rightPos - speed) + "px";
+			
+			
+			if(character.position().left >= $('#line').position().left){
+				character.position().left = $('#line').position().left
+				raceOccuring = false;
+				character.clearQueue();
+				character.stop();
+			}
+			
+			var path = document.getElementById('userCharacter').src.split('/');
+			var image = path[path.length - 2] + '/' + path[path.length-1];
+			
+			if(image != document.getElementById('userCharacter').dataset.running){
+				document.getElementById('userCharacter').src = document.getElementById('userCharacter').dataset.running;
+			}
+			timePassed = setTimeout(function() {document.getElementById('userCharacter').src = document.getElementById('userCharacter').dataset.idle;}, 250);
+		}//end movePlayerChar()
+		
+		
+	</script>
+</body>
+</html>

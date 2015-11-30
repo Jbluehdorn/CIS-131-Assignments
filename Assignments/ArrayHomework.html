@@ -1,0 +1,174 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Random Duck Image Swapper</title>
+    <link rel="stylesheet" src="css/bootstrap.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/DuckFavicon.png" type="image/png">
+    
+    <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+    <style>
+		header {
+			width: 800px;
+			margin: auto;	
+			position: relative;
+			left: 0;
+		}
+		
+		#controls {
+			background: white;	
+		}
+		
+		.stackedButtons {
+			display: inline-block;
+			vertical-align: top;
+			width: 50%;	
+		}
+		
+		.stackedButtons button {
+			display: block;	
+		}
+		
+		button {
+			display: inline;	
+			padding: 15px;
+		}
+	</style>
+</head>
+
+<!--Jordan Bluehdorn
+	CIS 131
+    September 30, 2015-->
+
+<body>
+	<header id="header">
+    	<div class="headerBar">
+        	<nav>
+            	<ul>
+                	<li><a href="index.html">Home</a></li>
+                    <li><a href="assignments.html">Assignments</a></li>
+                    <li><a href="more.html">More</a></li>
+                </ul>
+            </nav>
+        </div><!--End headerBar-->
+        
+        <img src="images/OregonO.png" alt="Oregon Logo" id="headerImage" >
+        
+        <div class="headerBar bottomBar">
+            
+        </div><!--End bottomBar-->
+    </header>
+    
+    <div id="picDiv">
+    	<h1>Oregon Ducks Photo Gallery</h1>
+        <p id="timeParagraph" style="color:white;">Current time: </p>
+    	<img src="images/Mariota.jpg" alt="Marcus Mariota striking a Heisman pose" id="mainPic" onclick="stopRandomTimer()">
+        <small>(click the photo to pause the slideshow)</small>
+    
+    	<div id="controls">
+        	<p>Controls</p>
+            <div class="stackedButtons">
+        		<button onclick="startRandomTimer()">Start a random slideshow!</button>
+                <button type="button" onclick="moveHeader(100)">Move the header</button>
+            </div><!--end stackedButtons
+         --><div class="stackedButtons">
+                <button onclick="hideHeader()" id="hide">Hide the header!</button>
+                <button onclick="showHeader()" id="show" disabled="true">Show the header!</button>
+            </div><!--end stackedButtons-->
+        </div><!--end controls-->
+        
+    
+    </div><!--end picDiv-->
+    
+    <script>
+		var myTimer; 
+		updateDate();
+		var dateTimer = setInterval(function() {updateDate()}, 10);
+		var header = document.getElementById('header');
+		var currentlyRight = false;
+		header.style.left = 0;
+		
+		showHeader();
+		
+		//hides the header
+		function hideHeader() {
+			header.style.display = 'none';
+			document.getElementById('hide').disabled = true;
+			document.getElementById('hide').style.background = "gray";
+			document.getElementById('show').disabled = false;
+			document.getElementById('show').style.background = "green";
+		}
+		
+		//show the header
+		function showHeader() {
+			header.style.display = 'block';	
+			document.getElementById('show').disabled = true;
+			document.getElementById('show').style.background = "gray";
+			document.getElementById('hide').disabled = false;
+			document.getElementById('hide').style.background = "green";
+		}
+		
+		//moves the header
+		function moveHeader(amnt) {
+			if(currentlyRight) {
+				header.style.left = parseInt(header.style.left,10) - amnt + 'px';
+				currentlyRight = false;
+			} else {
+				header.style.left = parseInt(header.style.left,10) + amnt + 'px';
+				currentlyRight = true;	
+			}
+		}
+		
+		//Updates the paragraph every second 
+		function updateDate() {
+			var date = new Date();
+			var hrs = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
+			var mins = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+			var secs = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
+			document.getElementById('timeParagraph').innerHTML = "Current time: " + hrs + ':' + mins + ':' + secs;
+		}	
+		
+		//Changes the image in the header
+		function changeHeaderImage() {
+			var currSelection = Math.floor(Math.random() * 3);
+			if(currSelection == 0){
+				document.getElementById('headerImage').src = "images/DuckThroughO.gif";	
+				currSelection++;
+			} else if (currSelection == 1) {
+				document.getElementById('headerImage').src = "images/Player.png";
+				currSelection++;
+			} else if (currSelection == 2) {
+				document.getElementById('headerImage').src = "images/Helmet.png";	
+				currSelection++;
+			} else {
+				document.getElementById('headerImage').src = "images/OregonO.png";
+				currSelection = 0;	
+			}
+		}
+		
+		//begins the timer
+		function startRandomTimer() {
+			clearInterval(myTimer); //prevents the same interval being set multiple times
+			myTimer = setInterval(function() {randomMainPic()}, 5000);	
+		}
+		
+		//clears the timer
+		function stopRandomTimer() {
+			clearInterval(myTimer);	
+		}
+		
+		//Randomizes the pic
+		function randomMainPic() {
+			var pics = new Array(4);
+			pics[0] = 'images/Mariota.jpg';
+			pics[1] = 'images/Helfrich.jpg';
+			pics[2] = 'images/Pac12Champs.jpg';
+			pics[3] = 'images/Rosebowl.jpg';
+			
+			document.getElementById('mainPic').src = pics[Math.floor(Math.random() * 4)];
+		}
+	</script>
+</body>
+</html>

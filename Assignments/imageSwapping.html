@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Duck Image Swapper</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/DuckFavicon.png" type="image/png">
+    <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+</head>
+
+<!--Jordan Bluehdorn
+	CIS 131
+    September 3, 2015-->
+
+<body>
+	<header>
+    	<div class="headerBar">
+        	<nav>
+            	<ul>
+                	<li><a href="index.html">Home</a></li>
+                    <li><a href="assignments.html">Assignments</a></li>
+                    <li><a href="more.html">More</a></li>
+                </ul>
+            </nav>
+        </div><!--End headerBar-->
+        
+        <img src="images/OregonO.png" alt="Oregon Logo" id="headerImage">
+        
+        <div class="headerBar bottomBar">
+        	<button type="button" onclick="changeHeaderImage()">Click here to change the header image!</button>
+        </div><!--End bottomBar-->
+    </header>
+    
+    <div id="picDiv">
+    	<h1>Oregon Ducks Photo Gallery</h1>
+    	<img src="images/Mariota.jpg" alt="Marcus Mariota striking a Heisman pose" id="mainPic">
+        <small>(click a thumbnail to change the picture)</small>
+    
+    
+        <ul id="picList">
+            <li><img src="images/Mariota.jpg" alt="Marcus Mariota striking a Heisman pose" onclick="changeMainPic(this)"></li><!--
+         --><li><img src="images/Helfrich.jpg" alt="Coach Helfrich celebrating" onclick="changeMainPic(this)"></li><!--
+         --><li><img src="images/Pac12Champs.jpg" alt="Oregon players after Pac-12 Championship" onclick="changeMainPic(this)"></li><!--
+         --><li><img src="images/Rosebowl.jpg" alt="Oregon players after 2014 Rose Bowl win" onclick="changeMainPic(this)"></li>
+        </ul>
+    
+    </div><!--end picDiv-->
+    
+    <script>
+		var currSelection = 0;
+		
+		//Changes the image in the header
+		function changeHeaderImage() {
+			if(currSelection == 0){
+				document.getElementById('headerImage').src = "images/DuckThroughO.gif";	
+				currSelection++;
+			} else if (currSelection == 1) {
+				document.getElementById('headerImage').src = "images/Player.png";
+				currSelection++;
+			} else if (currSelection == 2) {
+				document.getElementById('headerImage').src = "images/Helmet.png";	
+				currSelection++;
+			} else {
+				document.getElementById('headerImage').src = "images/OregonO.png";
+				currSelection = 0;	
+			}
+		}
+		
+		function changeMainPic(image) {
+			var x = image.src;
+			document.getElementById('mainPic').src = x;	
+			document.getElementById('mainPic').alt = image.alt;
+		}
+	</script>
+</body>
+</html>

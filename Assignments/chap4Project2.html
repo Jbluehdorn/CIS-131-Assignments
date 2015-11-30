@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+    <!--Jordan Bluehdorn
+    	CIS 131 Sec 102
+        Chapter 4 Project 2-->
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/DuckFavicon.png" type="image/png">
+    <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+    <script>
+		var timer;
+		var timeCount = 0;
+		
+		//runs the guessing game
+		function whileTest() {
+			var correctAnswer = Math.floor(Math.random() * 10 + 1); //creates a random num 1-10 for the user to guess
+			var userNum = prompt('Guess a number(1-10)!', ''); //initializes the guess
+			var attemptCount = 1; //tracks attempts taken
+			var winCheck;
+			var button = document.getElementById('mainButton');
+			clearInterval(timer);
+			
+			//Loops to let the user keep guessing
+			while(userNum != correctAnswer && attemptCount < 3) {
+				if(userNum < 1 || userNum > 10)
+					userNum = prompt('Wrong! Remember to guess a number between 1 and 10.');
+				else
+					userNum = prompt('Wrong! Guess again (1-10)');
+				attemptCount++;
+			}
+			
+			//Gives the user feedback 
+			if(userNum == correctAnswer){
+				alert('You got it!');
+				winCheck = 'won';
+				timer = setInterval(function() {toggleBackground()}, 150);
+			} else {
+				alert('Sorry you ran out of attempts.');
+				winCheck = 'lost';
+				button.style = "background: #f00;";
+			} //end if
+			
+			button.innerHTML = "You " + winCheck + "! Play again?";
+		} //end whileTest
+		
+		//Flashes the background if the user was correct. Might cause seizures.
+		function toggleBackground() {
+			if(timeCount % 2 == 0)
+				document.getElementById('mainButton').style = "background: linear-gradient(to bottom, #00BB38 0%, #00C504 90%, #10E300 100%); color: #FFED00;";
+			else
+				document.getElementById('mainButton').style = "background: #FFED00; color: #00BB38;";
+			timeCount++;
+		}
+	</script>
+    <style>
+		button {
+			height: 150px;
+			width: 800px;
+			font-size: 40px;
+		}
+	</style>
+</head>
+
+<body>
+	<header>
+    	<div class="headerBar">
+        	<nav>
+            	<ul>
+                	<li><a href="index.html">Home</a></li>
+                    <li><a href="assignments.html">Assignments</a></li>
+                    <li><a href="more.html">More</a></li>
+                </ul>
+            </nav>
+        </div><!--End headerBar-->
+        
+        <img src="images/OregonO.png" alt="Oregon Logo" id="headerImage">
+        
+        <div class="headerBar bottomBar">
+        
+        </div><!--End bottomBar-->
+    </header>
+    
+    <div id="main">
+    	<button onclick="whileTest()" id="mainButton">Click here to play a guessing game!</button>
+    </div><!--end main-->
+    
+   	
+</body>
+</html>

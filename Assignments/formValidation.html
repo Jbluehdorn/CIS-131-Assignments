@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<!--Jordan Bluehdorn
+	CIS 131 - Sec 102
+    October 5, 2015-->
+<head>
+    <meta charset="utf-8">
+    <title>Form Validation</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+	<style>
+		/*--Centers and sizes the content for the page--*/
+		#mainContent {
+			padding: 10px;
+			width: 800px;
+			margin: 5px auto;
+			border: 3px dotted #7A7A7A ;	
+		}
+		
+		#validationMessages {
+			color: red;
+			background: #FFBABB;
+			border: 1px solid #EEA9AA;	
+			width: 500px; 
+			padding: 10px;
+			margin: 10px;
+			display: none;
+		}
+	</style>
+	
+<body>
+    <header>
+    	<div class="headerBar">
+        	<nav>
+            	<ul>
+                	<li><a href="index.html">Home</a></li>
+                    <li><a href="assignments.html">Assignments</a></li>
+                    <li><a href="more.html">More</a></li>
+                </ul>
+            </nav>
+        </div><!--End headerBar-->
+        
+        <img src="images/OregonO.png" alt="Oregon Logo" id="headerImage">
+        
+        <div class="headerBar bottomBar">
+        
+        </div><!--End bottomBar-->
+    </header>
+    
+    <div id="mainContent" class="clearfix">
+		<h1>Join Our Mailing List!</h1>
+        <div id="validationMessages">
+        	<p>Error: Some fields are missing</p>
+        </div><!--end validationMessages-->
+        <form class="col-lg-8" id="userForm" action="thankYou.html" method="post">
+            <div class="form-group">
+                <label for="Name" class="control-label">Name</label>
+                <input id="Name" name="Name" type="text" class="form-control" placeholder="Your Name">
+            </div><!--End form-group-->
+            <div class="form-group">
+            	<label for="Email" class="control-label">Email</label>
+                <input id="Email" name="Email" type="text" class="form-control" placeholder="ex. Bill@Microsoft.Net">
+            </div><!--end form-group-->
+            <div class="form-group">
+            	<label for="Phone" class="control-label">Phone Number</label>
+                <input id="Phone" name="Phone" type="text" class="form-control" placeholder="ex. (555)555-1431">
+            </div><!--end form-group-->
+            
+            <button class="btn btn-primary" type="submit" onclick="return checkFields(this.form)">Submit</button>
+        </form>
+    </div>
+    
+    <script>
+		
+		function checkFields(form) {
+			var allFieldsValid = true;
+			
+			var errorList = document.getElementById('validationMessages');
+			
+			errorList.innerHTML = "<p>Error: Some fields are missing</p>"
+			//Loops through every input in the form except for the button
+			for(var i = 0; i < form.elements.length - 1; i++) {
+				//Applies appropriate styles based on validation states
+				if(form.elements[i].value.length < 1) {
+					form.elements[i].focus();
+					form.elements[i].parentNode.className += " has-error";
+					errorList.innerHTML += "<br>* " + form.elements[i].name + " is required";
+					errorList.style.display = 'block';
+					allFieldsValid = false;
+				}
+				else {
+					form.elements[i].parentNode.className -= " has-error";
+					form.elements[i].parentNode.className += " has-success";
+				}
+			}
+			
+			return allFieldsValid;
+		}
+	</script>
+    
+</body>	
+</html>
