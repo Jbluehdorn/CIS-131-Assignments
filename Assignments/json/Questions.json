@@ -1,0 +1,284 @@
+{
+	"categories" : 
+	[
+		{
+			"id" : "0",
+			"name" : "Anarachy in Christmas",
+			"description" : "Punk-rock Christmas Music",
+			"image" : "images/christmas/PunkRockSanta.png"
+		},
+		{
+			"id" : "1",
+			"name" : "Holiday Massacres",
+			"description" : "Famous serial killings during the month of December",
+			"image" : "images/christmas/SantaMugshot.png"
+		},
+		{
+			"id" : "2",
+			"name" : "National Festivities League",
+			"description" : "NFL Games on Christmas Day",
+			"image" : "images/christmas/SantaFootball.gif"
+		}
+	],
+	"questions" : 
+	[
+		{
+			"categoryId" : "0",
+			"question" :  "Which song stated \"Merry Christmas, I could care less?\"",
+			"answers" : [
+				{
+					"value" : "Yule Shoot Your Eye Out - Fall Out Boy",
+					"correct" : true	
+				},
+				{
+					"value" : "Forget December - Something Corporate",
+					"correct" : false	
+				},
+				{
+					"value" : "Ex-Miss - New Found Glory",
+					"correct" : false	
+				},
+				{
+					"value" : "Christmas in Hollis - The A.K.A.s",
+					"correct" : false
+				},
+				{
+					"value" : "Santa's Gotta Mullet - Nerf Herder",
+					"correct" : false	
+				}
+			]
+		},
+		{
+			"categoryId" : "0",
+			"question" : "Which of the following is a line from Blink-182's \"I Won't Be Home for Christmas\"?",
+			"answers" : [
+				{
+					"value" :  "\"I'm growing tired of all this Christmas cheer\"",
+					"correct" : true
+				},
+				{
+					"value" : "\"This time of year sucks, so I take my nunchucks, and make sure every snowman dies\"",
+					"correct" : false	
+				},
+				{
+					"value" : "\"Angel's up in Heaven are pluckin their harps, Santa's wearing Oakley's and he's looking mighty sharp\"",
+					"correct" : false	
+				}
+			]
+		},
+		{
+			"categoryId" : "0",
+			"question" : "Who wrote \"Merry Christmas (I Don't Wanna Fight Tonight)\"?",
+			"answers" : [
+				{
+					"value" : "Ramones",
+					"correct" : true	
+				},
+				{
+					"value" : "Dead Kennedys",
+					"correct" : false	
+				},
+				{
+					"value" : "The Shittz",
+					"correct" : false	
+				}, 
+				{
+					"value" : "NOFX",
+					"correct" : false	
+				}
+			]	
+		},
+		{
+			"categoryId" : "1",
+			"question" : "Which American general lead captured 1000 Hessian soldiers the morning after Christmas day?",
+			"answers" : [
+				{
+					"value" : "George Washington",
+					"correct" : true	
+				},
+				{
+					"value" : "George Custer",
+					"correct" : false
+				},
+				{
+					"value" : "Robert E. Lee",
+					"correct" : false	
+				},
+				{
+					"value" : "Dwight D. Eisenhower",
+					"correct" : false	
+				}
+			]
+		},
+		{
+			"categoryId" : "1",
+			"question" : "In which country did the 2008 Christmas massacres occur?",
+			"answers" : [
+				{
+					"value" : "Uganda",
+					"correct" : true	
+				},
+				{
+					"value" : "United States",
+					"correct" : false
+				},
+				{
+					"value" : "Italy",
+					"correct" : false	
+				},
+				{
+					"value" : "Egypt",
+					"correct" : false	
+				}
+			]	
+		},
+		{
+			"categoryId" : "1",
+			"question" : "In which North Carolina city did Charlie Lawson murder his wife and six children on December 25th, 1929?",
+			"answers" : [
+				{
+					"value" : "Germantown",
+					"correct" : true	
+				},
+				{
+					"value" : "Wilmington",
+					"correct" : false
+				},
+				{
+					"value" : "Boone",
+					"correct" : false	
+				},
+				{
+					"value" : "Wake Forest",
+					"correct" : false	
+				},
+				{
+					"value" : "Blowing Rock",
+					"correct" : false	
+				}
+			]	
+		},
+		{
+			"categoryId" : "1",
+			"question" : "In 1979, which super-power invaded Afghanistan on Christmas eve?",
+			"answers" : [
+				{
+					"value" : "Soviet Union",
+					"correct" : true	
+				},
+				{
+					"value" : "United States",
+					"correct" : false	
+				},
+				{
+					"value" : "Germany",
+					"correct" : false	
+				},
+				{
+					"value" : "Japan",
+					"correct" : false	
+				}
+			]	
+		},
+		{
+			"categoryId" : "2",
+			"question" : "In 2000, which Team did the Tennessee Titans shut out 31-0 on Christmas Day?",
+			"answers" : [
+				{
+					"value" : "Dallas Cowboys",
+					"correct" : true	
+				},
+				{
+					"value" : "Seattle Seahawks",
+					"correct" : false	
+				},
+				{
+					"value" : "Miami Dolphins",
+					"correct" : false	
+				},
+				{
+					"value" : "San Fransisco 49ers",
+					"correct" : false
+				},
+				{
+					"value" : "Houston Oilers",
+					"correct" : false	
+				}
+			]	
+		},
+		{
+			"categoryId" : "2",
+			"question" : "How many NFL regular season games have been played on December 25th?",
+			"answers" : [
+				{
+					"value" : "12",
+					"correct" : true	
+				},
+				{
+					"value" : "15",
+					"correct" : false	
+				},
+				{
+					"value" : "8",
+					"correct" : false	
+				},
+				{
+					"value" : "17",
+					"correct" : false	
+				}
+			]	
+		},
+		{
+			"categoryId" : "2",
+			"question" : "Which team has the highest W/L ratio on Christmas?",
+			"answers" : [
+				{
+					"value" : "Denver Broncos",
+					"correct" : true	
+				},
+				{
+					"value" : "Arizona Cardinals",
+					"correct" : false	
+				},
+				{
+					"value" : "Detroit Lions",
+					"correct" : false	
+				},
+				{
+					"value" : "Green Bay Packers",
+					"correct" : false
+				},
+				{
+					"value" : "Philadelphia Eagles",
+					"correct" : false	
+				}
+			]	
+		},
+		{
+			"categoryId" : "2",
+			"question" : "Which Oakland Raider QB threw a game-saving 42-yd pass on Christmas eve in the infamous \"Ghost to the Post\" play?",
+			"answers" : [
+				{
+					"value" : "Ken Stabler",
+					"correct" : true	
+				},
+				{
+					"value" : "Jim Plunkett",
+					"correct" : false	
+				},
+				{
+					"value" : "Todd Marinovich",
+					"correct" : false	
+				},
+				{
+					"value" : "Rich Gannon",
+					"correct" : false	
+				},
+				{
+					"value" : "Marc Wilson",
+					"correct" : false	
+				}
+			]
+		}
+	]
+}
