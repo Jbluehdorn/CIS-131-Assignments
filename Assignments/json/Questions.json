@@ -89,8 +89,64 @@
 			]	
 		},
 		{
+			"categoryId" : "0",
+			"question" : "A percentage of the profits from the compliation album \"A Santa Cause: It's a Punk Rock Christmas\" went to which charity foundation?",
+			"answers" : [
+				{
+					"value" : "The Elizabeth Glaser Pediatric AIDS Foundation",
+					"correct" : true
+				},
+				{
+					"value" : "UNICEF",
+					"correct" : false	
+				},
+				{
+					"value" : "Big Brothers Big Sisters",
+					"correct" : false	
+				},
+				{
+					"value" : "Dian Fossey Gorilla Fund International",
+					"correct" : false	
+				},
+				{
+					"value" : "Student Conservation Association",
+					"correct" : false	
+				}
+			]
+		},
+		{
+			"categoryId" : "0",
+			"question" : "Which record label released the album \"Punk Goes Christmas\" in 2013?",
+			"answers" : [
+				{
+					"value" : "Fearless Records",
+					"correct" : true	
+				},
+				{
+					"value" : "Atlantic Records",
+					"correct" : false	
+				},
+				{
+					"value" : "Volcom Entertainment",
+					"correct" : false	
+				},
+				{
+					"value" : "Warner Brothers Music Group",
+					"correct" : false	
+				},
+				{
+					"value" : "EMI",
+					"correct" : false	
+				},
+				{
+					"value" : "Epitaph Records",
+					"correct" : false	
+				}
+			]
+		},
+		{
 			"categoryId" : "1",
-			"question" : "Which American general lead captured 1000 Hessian soldiers the morning after Christmas day?",
+			"question" : "Which American general captured 1000 Hessian soldiers the morning after Christmas day?",
 			"answers" : [
 				{
 					"value" : "George Washington",
@@ -112,7 +168,7 @@
 		},
 		{
 			"categoryId" : "1",
-			"question" : "In which country did the 2008 Christmas massacres occur?",
+			"question" : "In which country did the LRA commit the 2008 \"Christmas Massacres\" occur?",
 			"answers" : [
 				{
 					"value" : "Uganda",
@@ -181,6 +237,32 @@
 			]	
 		},
 		{
+			"categoryId" : "1",
+			"question" : "Dressed in a Santa Suit, Bruce Jeffrey Pardo killed how many people in the Covina Massacre?",
+			"answers" : [
+				{
+					"value" : "9",
+					"correct" : true	
+				},
+				{
+					"value" : "7",
+					"correct" : false	
+				},
+				{
+					"value" : "13",
+					"correct" : false	
+				},
+				{
+					"value" : "22",
+					"correct" : false	
+				},
+				{
+					"value" : "4",
+					"correct" : false	
+				}
+			]
+		},
+		{
 			"categoryId" : "2",
 			"question" : "In 2000, which Team did the Tennessee Titans shut out 31-0 on Christmas Day?",
 			"answers" : [
@@ -205,6 +287,32 @@
 					"correct" : false	
 				}
 			]	
+		},
+		{
+			"categoryId" : "2",
+			"question" : "On December 25th, _____ the Miami Dolphins beat the Kansas City Chiefs 27-24 in double overtime in the WildCard Round",
+			"answers" : [
+				{
+					"value" : "1971",
+					"correct" : "true"	
+				},
+				{
+					"value" : "1993",
+					"correct" : "false"	
+				},
+				{
+					"value" : "1984",
+					"correct" : "false"	
+				},
+				{
+					"value" : "2001",
+					"correct" : "false"	
+				},
+				{
+					"value" : "2012",
+					"correct" : "false"	
+				}
+			]
 		},
 		{
 			"categoryId" : "2",

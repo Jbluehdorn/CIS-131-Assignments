@@ -446,7 +446,7 @@ form {
 	font-family: 'Lato', sans-serif;
 }
 
-#TriviaContainer h1, #TriviaContainer h4 {
+#TriviaContainer h1, #TriviaContainer h4, #TriviaContainer h5 {
 	margin: 0;
 	margin-bottom: 5px;
 	padding: 5px;
@@ -454,13 +454,21 @@ form {
 	color: rgb(63, 150, 25);
 }
 
-#TriviaContainer h4 {
+#TriviaContainer #Results {
+	position: absolute;
+	bottom: 5px;
+	right: 10px;	
+	color: rgb(63, 150, 25);
+}
+
+#TriviaContainer h4, #TriviaContainer h5 {
 	text-align: center;	
 }
 
 #TriviaBoard {
 	background: #CDFFD6;
 	padding: 5px;
+	position: relative;
 }
 
 #TriviaBoard * {
@@ -497,6 +505,8 @@ form {
 	background: #58BB6A;
 }
 
+
+
 #TriviaImage {
 	display: block;
 	margin: 2px auto;
@@ -514,6 +524,11 @@ form {
 	background: #58BB6A;
 }
 
+.answer[incorrect] {
+	transition: background 1s;
+	background: #BB5858;	
+}
+
 #Buttons {
 	width: 50%;
 	margin: auto;
@@ -526,6 +541,12 @@ form {
 	margin: 5px;	
 	border: 1px solid #4FAC60;
 	background: #489E58;
+}
+
+#TriviaBoard #ErrorMessage {
+	text-align: center;
+	color: red;	
+	display: none;
 }
 
 /*==Misc Classes==*/
